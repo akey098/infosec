@@ -1,0 +1,13 @@
+fum@LABVM:~$ nano mail.py
+fum@LABVM:~$ nano mail.py
+fum@LABVM:~$ ls
+cout_word.sh     delete_empty_files.sh  file.txt  login_data.txt  phishing             server.py     world_writable.sh
+current_time.sh  fake_login.html        greet.sh  mail.py         rspamd-telegram-bot  suid_scan.sh
+fum@LABVM:~$ nano mail.py
+fum@LABVM:~$ nano mail.py
+fum@LABVM:~$ nano mail.py
+fum@LABVM:~$ nano mail.py
+fum@LABVM:~$ python3 mail.py
+Email sent successfully!
+fum@LABVM:~$ nano mail.py
+fum@LABVM:~$
