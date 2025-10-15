@@ -1,0 +1,20 @@
+fum@LABVM:/home$ sudo apt install vim
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+vim is already the newest version (2:9.1.0016-1ubuntu7.9).
+vim set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 65 not upgraded.
+fum@LABVM:/home$ touch file.txt
+touch: cannot touch 'file.txt': Permission denied
+fum@LABVM:/home$ cd fum
+fum@LABVM:~$ cd infosec/
+fum@LABVM:~/infosec$ rm file.txt
+rm: remove write-protected regular empty file 'file.txt'?
+fum@LABVM:~/infosec$ crontab -e
+crontab: installing new crontab
+fum@LABVM:~/infosec$ touch file.txt
+touch: cannot touch 'file.txt': Permission denied
+fum@LABVM:~/infosec$ sudo touch file.txt
+fum@LABVM:~/infosec$ sudo vim file.txt
+fum@LABVM:~/infosec$ sudo vim file.txt
