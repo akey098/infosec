@@ -1,11 +1,10 @@
+I promise to meet the deadline and will take disciplinary action if this requirement is not met
 # Secure Password Generator (CLI)
 
 A fast, flexible, cryptographically secure password generator written in Python.  
 Works in Linux bash, macOS Terminal, WSL, and Windows PowerShell.
 
 The tool generates strong random passwords with customizable length, character sets, exclusions, URL-safe mode, CSV/JSON output, entropy estimation, and clipboard copying.
-
----
 
 ## Features
 
@@ -26,8 +25,6 @@ The tool generates strong random passwords with customizable length, character s
 - Entropy estimation with `--show-entropy`
 - Clipboard copy (`wl-copy`, `xclip`, or `pbcopy`) with `--copy`
 - Supports generating one or many passwords
-
----
 
 ## Installation
 
