@@ -23,82 +23,66 @@ The generator uses Python's `secrets` module to ensure cryptographically strong 
 - Prefix and suffix support (not counted toward length)
 - Output formats: plain text, JSON, CSV
 - Entropy estimation (`--show-entropy`)
-- Clipboard copy support (`--copy`)
 - Ability to generate multiple passwords at once
-
-
-## Installation
-
-Download or copy `spg.py` and make it executable:
-
-```bash
-chmod +x spg.py
-```
-
-(Optional) Move it to a directory on your `PATH`:
-
-```bash
-sudo mv spg.py /usr/local/bin/spg
-```
-
-Now you can run:
-
-```bash
-spg -l 24
-```
-
 
 ## Basic Usage
 
 ### Default generation
 ```bash
-./spg.py
+python ./spg.py
 ```
 Generates a 16-character password using all character classes.
 
 ### Change password length
 ```bash
-./spg.py -l 24
+python ./spg.py -l 24
 ```
 
 ### Generate multiple passwords
 ```bash
-./spg.py -n 5 -l 20
+python ./spg.py -n 5 -l 20
 ```
 
 ### Use only uppercase and digits
 ```bash
-./spg.py --upper --digits -l 18
+python ./spg.py --upper --digits -l 18
 ```
 
 ### Remove ambiguous characters
 ```bash
-./spg.py -l 24 --no-ambiguous
+python ./spg.py -l 24 --no-ambiguous
 ```
 
 ### Enforce at least one character from each selected class
 ```bash
-./spg.py -l 24 --require-classes
+python ./spg.py -l 24 --require-classes
 ```
 
 ### URL-safe tokens
 ```bash
-./spg.py --url-safe -l 32
+python ./spg.py --url-safe -l 32
 ```
 
 ### CSV output
 ```bash
-./spg.py -n 5 --format csv
+python ./spg.py -n 5 --format csv
+```
+
+Save 10 passwords as CSV:
+
+```bash
+python ./spg.py -n 10 --format csv > passwords.csv
 ```
 
 ### JSON output
 ```bash
-./spg.py -n 3 --format json
+python ./spg.py -n 3 --format json
 ```
 
-### Copy result to clipboard
+Save 5 passwords as JSON:
+
 ```bash
-./spg.py --copy
+python ./spg.py -n 5 --format json > passwords.json
 ```
 
 ## Command-Line Options
@@ -143,7 +127,7 @@ Generates a 16-character password using all character classes.
 ## Entropy Example
 
 ```bash
-./spg.py -l 20 --show-entropy
+python ./spg.py -l 20 --show-entropy
 ```
 
 Example output (stderr):
