@@ -166,6 +166,6 @@ README.md     # documentation
 - Output is printed to stdout; avoid logging or exposing it accidentally
 - Clipboard copying may be unsafe on shared systems
 
-## License
+## License 
 
 MIT License.
