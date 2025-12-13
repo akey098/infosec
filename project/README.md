@@ -1,13 +1,17 @@
-I promise to meet the deadline and will take disciplinary action if this requirement is not met.
-# Secure Password Generator (CLI)
+# Secure Password Generator
 
-This project provides a Python-based command-line tool for generating secure, fully customizable passwords.  
-The generator uses Python's `secrets` module to ensure cryptographically strong randomness and supports a wide range of configuration options such as custom character sets, exclusions, URL-safe mode, entropy estimation, and multiple output formats.
+A small Python CLI for generating strong passwords on your own machine (no internet needed).
+It uses Python’s secrets for secure randomness, and you can tweak length, character sets, exclusions, and output format with flags.
 
+## Why this exists
+
+- Quick password generation without relying on websites or external services
+- Works offline and can export results (JSON/CSV) for safe local storage
+- Optional constraints like “no ambiguous characters” or “no repeats”
 
 ## Features
 
-- Cryptographically secure password generation using Python `secrets`
+- Password generation using Python `secrets`
 - Adjustable password length
 - Customizable character sets:
   - lowercase letters
@@ -21,7 +25,7 @@ The generator uses Python's `secrets` module to ensure cryptographically strong 
 - Optional no-repeat mode (`--no-repeat`)
 - URL-safe mode (`--url-safe`)
 - Prefix and suffix support (not counted toward length)
-- Output formats: plain text, JSON, CSV
+- Export in json and csv
 - Entropy estimation (`--show-entropy`)
 - Ability to generate multiple passwords at once
 
@@ -31,7 +35,7 @@ The generator uses Python's `secrets` module to ensure cryptographically strong 
 ```bash
 python ./spg.py
 ```
-Generates a 16-character password using all character classes.
+Generates a 16-char password with any characters possible.
 
 ### Change password length
 ```bash
@@ -68,7 +72,7 @@ python ./spg.py --url-safe -l 32
 python ./spg.py -n 5 --format csv
 ```
 
-Save 10 passwords as CSV:
+Save 10 passwords as csv:
 
 ```bash
 python ./spg.py -n 10 --format csv > passwords.csv
@@ -79,7 +83,7 @@ python ./spg.py -n 10 --format csv > passwords.csv
 python ./spg.py -n 3 --format json
 ```
 
-Save 5 passwords as JSON:
+Save 5 passwords as json:
 
 ```bash
 python ./spg.py -n 5 --format json > passwords.json
@@ -89,33 +93,32 @@ python ./spg.py -n 5 --format json > passwords.json
 
 ### Length and count
 ```
--l, --length INT       Length of the random portion (default: 16)
--n, --count INT        Number of passwords to generate (default: 1)
+-l, --length *number*       Length of the random portion (default: 16)
+-n, --count *number*        Number of passwords to generate (default: 1)
 ```
 
 ### Character selection
 ```
---lower                Include lowercase letters
---upper                Include uppercase letters
---digits               Include digits
---symbols              Include symbols
---symbols-set TEXT     Override symbol set (e.g. "!@#$%^&*")
---exclude TEXT         Exclude specific characters
---no-ambiguous         Remove visually similar characters (O/0, I/l/1, etc.)
---no-repeat            Do not repeat characters in the random portion
---require-classes      Require at least one of each selected class
---url-safe             Use URL-safe unreserved set (A-Z a-z 0-9 - . _ ~)
+--lower                     Include lowercase letters
+--upper                     Include uppercase letters
+--digits                    Include digits
+--symbols                   Include symbols
+--symbols-set *your_text*   Set your symbol set (e.g. "!@#$%^&*")
+--exclude *your_text*       Exclude specific characters
+--no-ambiguous              Remove visually similar characters (O/0, I/l/1, etc.)
+--no-repeat                 Do not repeat characters in the random portion
+--require-classes           Require at least one of each selected class
+--url-safe                  Use URL-safe unreserved set (A-Z a-z 0-9 - . _ ~)
 ```
 
 ### Output control
 ```
---prefix TEXT          Add prefix (not counted in --length)
---suffix TEXT          Add suffix (not counted in --length)
---format {plain,json,csv}
-                       Output format (default: plain)
---separator TEXT       Separator for multiple passwords in plain mode
---show-entropy         Print entropy estimate to stderr
---copy                 Copy the first generated password to clipboard
+--prefix *your_text*          Add prefix (not counted in --length)
+--suffix *your_text*          Add suffix (not counted in --length)
+--format {json,csv}
+                              Output format (default: plain)
+--separator *your_text*       Separator for multiple passwords in plain mode
+--show-entropy                Print entropy estimate to stderr
 ```
 
 ### Utility
@@ -130,26 +133,8 @@ python ./spg.py -n 5 --format json > passwords.json
 python ./spg.py -l 20 --show-entropy
 ```
 
-Example output (stderr):
+Example output:
 
 ```
 ~118.6 bits of entropy per password (random portion only).
 ```
-
-## Project Structure
-
-```
-spg.py        # main CLI script
-README.md     # documentation
-```
-
-## Security Notes
-
-- Uses Python’s `secrets` module (cryptographically secure)
-- Does not store generated passwords
-- Output is printed to stdout; avoid logging or exposing it accidentally
-- Clipboard copying may be unsafe on shared systems
-
-## License 
-
-MIT License.
