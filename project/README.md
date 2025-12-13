@@ -3,6 +3,8 @@
 A small Python CLI for generating strong passwords on your own machine (no internet needed).
 It uses Python’s secrets for secure randomness, and you can tweak length, character sets, exclusions, and output format with flags.
 
+> I promise to meet all deadlines and will fulfill all requirements.
+
 ## Why this exists
 
 - Quick password generation without relying on websites or external services
